@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/movieListFragment">
+    <fragment
+        android:id="@+id/movieListFragment"
+        android:name="com.ndzindo.tmdb.ui.movielist.MovieListFragment"
+        android:label="Discover"
+        tools:layout="@layout/fragment_movie_list">
+        <action
+            android:id="@+id/action_movieListFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+        <action
+            android:id="@+id/action_movieListFragment_to_addMovieFragment"
+            app:destination="@id/addMovieFragment" />
+        <action
+            android:id="@+id/action_movieListFragment_to_customMovieDetailsFragment"
+            app:destination="@id/customMovieDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.ndzindo.tmdb.ui.details.apimovies.DetailsFragment"
+        android:label="Details"
+        tools:layout="@layout/fragment_movie_details">
+        <argument
+            android:name="movie"
+            app:argType="com.ndzindo.tmdb.data.Movie" />
+    </fragment>
+    <fragment
+        android:id="@+id/addMovieFragment"
+        android:name="com.ndzindo.tmdb.ui.addmovie.AddMovieFragment"
+        android:label="Add movie"
+        tools:layout="@layout/fragment_add_movie" />
+    <fragment
+        android:id="@+id/customMovieDetailsFragment"
+        android:name="com.ndzindo.tmdb.ui.details.custommovies.CustomMovieDetailsFragment"
+        android:label="Custom movie"
+        tools:layout="@layout/fragment_custom_movie_details">
+        <argument
+            android:name="movie"
+            app:argType="com.ndzindo.tmdb.data.CustomMovie" />
+    </fragment>
+</navigation>
